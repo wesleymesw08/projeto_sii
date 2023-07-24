@@ -1,0 +1,23 @@
+<h1>Lista de Clientes</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Idade</th>
+    <th>Morada</th>
+    <th>Ações</th>
+  </tr>
+  {% for cliente in clientes %}
+  <tr>
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.idade }}</td>
+    <td>{{ cliente.morada }}</td>
+    <td>
+      <a href="{% url 'editar_cliente' cliente.pk %}">Editar</a>
+      <a href="{% url 'excluir_cliente' cliente.pk %}">Excluir</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{% url 'criar_cliente' %}">Novo Cliente</a>
